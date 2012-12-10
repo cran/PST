@@ -1,0 +1,40 @@
+importFrom(stats4, logLik)
+importFrom(stats4, nobs)
+importFrom(stats4, plot)
+importFrom(stats4, summary)
+
+exportMethods(
+	"cmine",
+	"cplot",
+	"cprob",
+	"generate",
+	"impute",
+	"logLik",
+	"nobs",
+	"nodenames",
+	"pdist",
+	"plot",
+	"pmine",
+	"ppplot",
+	"pqplot",
+	"predict",
+	"print",
+	"prune",
+	"pstree",
+	"query",
+	"subtree",
+	"summary",
+	"tune"
+)
+
+exportClasses(
+	"PSTr",
+	"PSTf"
+)
+
+
+
+
+
+
+
