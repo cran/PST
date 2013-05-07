@@ -47,7 +47,7 @@ data(SRH)
 state.list <- levels(SRH$p99c01)
 
 ## Sequential color palette
-mycol5 <- rev(brewer.pal(5, "RdYlGn"))
+mycol5 <- rev(RColorBrewer::brewer.pal(5, "RdYlGn"))
 
 ## Creating the sequence object
 SRH.seq <- seqdef(SRH, 5:15, alphabet=state.list, 

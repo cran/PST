@@ -1,4 +1,4 @@
-b675242042d6d179dea6211f6550471e *DESCRIPTION
+2095b042f8f27547f3c93c1dfacf46ea *DESCRIPTION
 4060550ba24fe1d45db0254b679df70f *NAMESPACE
 f3bf19afdcf8948c225934c7b83e9636 *NEWS
 06d77cdb7ab29b219bd81e9753309e88 *R/AllClass.R
@@ -47,10 +47,10 @@ c66d48c2a4e9efdf1b0665f534962aee *R/predict.R
 5937bf726ce77c2e6c102da51e4ea546 *data/s1.rda
 2a0a7af0b2aa00ef91aed5b84d098cfd *man/PSTf-class.Rd
 d444a36327a9907a7b5dcb99ddcb4214 *man/PSTr-class.Rd
-e41f457964421abfe7d5dc58714ada35 *man/SRH-data.Rd
+729d49f8735dfd2210c8a7ae0a8675ce *man/SRH-data.Rd
 aae6c945e4e28c16a50b1081583d48f8 *man/cmine.Rd
 a158dbdd7ac0d3cdf39cc19ec20973a4 *man/cplot.Rd
-df5a5fdf38577ee730a5a3178f332ce7 *man/cprob.Rd
+121ffc6ec3cad56fde14ce91fd2d0053 *man/cprob.Rd
 4a2d89ec4200b47ce98c5fbcbf537030 *man/generate.Rd
 24f1b286af24c6a8e3360fdfd30bb64c *man/impute.Rd
 0d8ce310b428962ba5f931e4ee39e652 *man/logLik.Rd
