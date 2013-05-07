@@ -12,8 +12,9 @@
 	\S4method{plot}{PSTf,ANY}(x, y=missing, max.level=NULL,
 		nodePar = list(), edgePar = list(),
 		axis=FALSE, xlab = NA, ylab = if (axis) { "L" } else {NA}, 
-		horiz = FALSE,
-		xlim, ylim, withlegend=TRUE, ltext=NULL, cex.legend=1, use.layout=withlegend!=FALSE, legend.prop=NA, ...)
+		horiz = FALSE, xlim, ylim, 
+		withlegend=TRUE, ltext=NULL, cex.legend=1, 
+		use.layout=withlegend!=FALSE, legend.prop=NA, ...)
 }
 
 \arguments{
@@ -90,7 +91,8 @@ s1 <- seqdef(s1)
 S1 <- pstree(s1, L=3)
 plot(S1)
 plot(S1, horiz=TRUE)
-plot(S1, nodePar=list(node.type="path", lab.type="prob", lab.pos=1, lab.offset=2, lab.cex=0.7), edgePar=list(type="triangle"), withlegend=FALSE)
+plot(S1, nodePar=list(node.type="path", lab.type="prob", lab.pos=1, lab.offset=2, lab.cex=0.7), 
+	edgePar=list(type="triangle"), withlegend=FALSE)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

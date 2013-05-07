@@ -20,7 +20,7 @@ Build a probabilistic suffix tree that stores a variable length Markov chain (VL
 	a sequence object, i.e., an object of class \code{'stslist'} as created by TraMineR \code{\link[TraMineR]{seqdef}} function.
 }
   \item{group}{
-	a vector giving the group membership for each observation in x. If specified, a 'grouped' PST is produced containing one PST for each group. 
+	a vector giving the group membership for each observation in x. If specified, a segmented PST is produced containing one PST for each group. 
 }
   \item{cdata}{ 
 	Not implemented yet.
@@ -45,9 +45,10 @@ Build a probabilistic suffix tree that stores a variable length Markov chain (VL
 }
 }
 \details{
-A probabilistic suffix tree (PST) is built from a learning sample of \eqn{n, \; n \geq 1} sequences by successively adding nodes corresponding to subsequences (contexts) \eqn{c} of length \eqn{L,  \; 0 \leq L \leq L_{max}}. When the value \eqn{L_{max}} is not defined by the user it is set to its theorectical maximum \eqn{\ell-1} where \eqn{\ell} is the maximum sequence length in the learning sample. \cr
+A probabilistic suffix tree (PST) is built from a learning sample of \eqn{n, \; n \geq 1} sequences by successively adding nodes labelled with subsequences (contexts) \eqn{c} of length \eqn{L,  \; 0 \leq L \leq L_{max}} found in the data. When the value \eqn{L_{max}} is not defined by the user it is set to its theorectical maximum \eqn{\ell-1} where \eqn{\ell} is the maximum sequence length in the learning sample. The \code{nmin} argument specifies the minimum frequency of a subsequence required to add it to te tree.\cr
 Each node of the tree is labelled with a context \eqn{c} and stores the next symbol empirical probability distribution \eqn{\hat{P}(\sigma|c), \; \sigma \in A}, where \eqn{A} is an alphabet of finite size. The root node labelled with the empty string \eqn{e} stores the \eqn{0th} order probability \eqn{\hat{P}(\sigma), \; \sigma \in A} of oberving each symbol of the alphabet in the whole learning sample.\cr
-The building algorithm calls the \code{\link{cprob}} function which returns the empirical next symbol counts observed after each context \eqn{c} and computes the corresponding empirical probability distribution. Each node in the tree is connected to its longest suffix, where the longest suffix of a string \eqn{c=c_{1},c_{2}, \ldots, c_{k}} of length \eqn{k} is \eqn{suffix(c)=c_{2}, \ldots, c_{k}}. 
+The building algorithm calls the \code{\link{cprob}} function which returns the empirical next symbol counts observed after each context \eqn{c} and computes the corresponding empirical probability distribution. Each node in the tree is connected to its longest suffix, where the longest suffix of a string \eqn{c=c_{1},c_{2}, \ldots, c_{k}} of length \eqn{k} is \eqn{suffix(c)=c_{2}, \ldots, c_{k}}.\cr
+Once an initial PST is built it can be pruned to reduce its complexity by removing nodes that do not provide significant information (see \code{\link{prune}}). A model selection procedure based on information criteria is also available (see \code{\link{tune}}).
 }
 \value{
 	An object of class \code{"\linkS4class{PSTf}"}.
@@ -64,7 +65,7 @@ Bejerano, G. & Yona, G. Variations on probabilistic suffix trees: statistical mo
 }
 
 \seealso{
-	\code{\link{prune}}
+	\code{\link{prune}}, \code{\link{tune}}
 }
 \examples{
 ## Build a PST on one single sequence

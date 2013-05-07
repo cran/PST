@@ -2,7 +2,7 @@
 ## and illustration of the pruning process 
 
 setMethod("ppplot", signature="PSTf", 
-	def=function(object, path, gain, C,  cex.plot=1, nsize=0.3, psize=nsize/2, 
+	def=function(object, path, gain, C,  cex.plot=1, nsize=0.3, nlab=TRUE, psize=nsize/2, 
 		pruned.col="red", div.col="green", ...) {
 
 		A <- object@alphabet
@@ -101,11 +101,10 @@ setMethod("ppplot", signature="PSTf",
 			}
 
 			ppar.lab <- paste("C", 1:nC, sep="")
+			
+			mtext(paste("C=", round(C,2)), side=2, at=ppar.lab.pos, 
+				las=2, cex=cex.plot, adj=1)
 
-			axis(2, at=ppar.lab.pos, 
-				labels=ppar.lab, 
-				## las=2, 
-				cex.axis=cex.plot)
 		}
 
 		## Plotting path and next symbol probability distributions
@@ -118,7 +117,7 @@ setMethod("ppplot", signature="PSTf",
 			segments(i, poff, i, poff+(nsize/2)+gsep, col="grey", lwd=3)
 	
 			symbols(x=i, y=poff, circles=nsize, bg=c.cpal[which(path[i]==c.A)], add=TRUE, inches=FALSE)
-			text(x=i, y=poff, labels=path[i], cex=cex.plot)
+			if (nlab) { text(x=i, y=poff, labels=path[i], cex=cex.plot) }
 			plotProb(i-nsize, prob.yBottom , i+nsize, prob.yBottom+1, prob=t(prob[,i]), 
 				cpal=cpal)
 		}
@@ -127,7 +126,7 @@ setMethod("ppplot", signature="PSTf",
 		segments(sl+1, poff, sl+1, poff+(nsize/2)+gsep, col="grey", lwd=3)
 
 		symbols(sl+1, y=poff, circles=nsize, bg="grey", add=TRUE, inches=FALSE)
-		text(x=sl+1, y=poff, labels="e")
+		if (nlab) { text(x=sl+1, y=poff, labels="e") }
 
 		## Plotting next symbol probability distributions
 		plotProb((sl+1)-nsize, prob.yBottom, (sl+1)+nsize, prob.yBottom+1, 
@@ -142,6 +141,8 @@ setMethod("ppplot", signature="PSTf",
 			labels=plab, 
 			## las=2, 
 			cex.axis=cex.plot)
+
+		mtext("Prob", side=2, at=(max(plabpos)+min(plabpos))/2, line=3)
 	}
 )
 

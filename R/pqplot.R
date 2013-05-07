@@ -91,7 +91,7 @@ setMethod("pqplot", signature=c(object="PSTf", data="stslist"),
 		}
 
 		barplot(tmp, col=stcol, offset=poff, add=plotseq, ylim=c(0,(poff+pqmax)), 
-			space=space, axes=FALSE, axisnames=FALSE, ylab=ylab, ...)
+			space=space, axes=FALSE, axisnames=FALSE, ylab=NULL, ...)
 		abline(h=pmean+poff, col="red")
 
 	} else if (ptype=="l") {
@@ -119,6 +119,8 @@ setMethod("pqplot", signature=c(object="PSTf", data="stslist"),
 		labels=plab, 
 		## las=2, 
 		cex.axis=cex.plot)
+
+	mtext(ylab, side=2, at=(min(plabpos)+max(plabpos))/2, line=3)
 
 }
 )

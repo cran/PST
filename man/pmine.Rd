@@ -5,11 +5,12 @@
 \alias{pmine,PSTf,stslist-method}
 \title{ PST based pattern mining }
 \description{
-Mine for (sub)sequences in a state sequence object satisfying user defined criteria
+Mine for (sub)sequences satisfying user defined criteria in a state sequence object 
 }
 
 \usage{
-\S4method{pmine}{PSTf,stslist}(object, data, l, pmin, pmax, lag, state, average=FALSE, output="sequences")
+\S4method{pmine}{PSTf,stslist}(object, data, l, pmin=0, pmax=1, prefix, lag, average=FALSE,
+output="sequences", with.prefix=TRUE, sorted=TRUE, decreasing=TRUE, score.norm=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,27 +19,40 @@ Mine for (sub)sequences in a state sequence object satisfying user defined crite
 }
 
   \item{data}{
-	a sequence object of class 'stslist' as defined with the \code{seqdef} function of the \code{\link{TraMineR}} library.
+	A sequence object of class 'stslist' as defined with the \code{seqdef} function of the \code{\link{TraMineR}} library.
 }
   \item{l}{
-	length of the subsequence to search for.
+	integer. Length of the subsequence to search for.
 }
   \item{pmin}{
-	numeric. Minimal probability for selecting the (sub)sequence.
+	numeric. (Sub)-sequences having average or per state probability greater or equal than \code{pmin} are selected. Default to 1, meaning no lower threshold for the probability.  
 }
   \item{pmax}{
-	numeric. Maximal probability for selecting the (sub)sequence.
+	numeric. (Sub)-sequences having average or per state probability less or equal than \code{pmax} are selected. Default to 1, meaning no upper threshold for the probability.  
+}
+  \item{prefix}{
+	character. Subsequences are searched in sequences starting with \code{'prefix'}, where \code{'prefix'} is a string representing a subsequence with states separated by \code{'-'}. This option can be used to search for -most- likely patterns in sequences starting with 'prefix'. 
 }
   \item{lag}{
-	integer. The \code{lag} first states in the sequence are omitted. 
-}
-  \item{state}{
+	integer. The \code{lag} first states in the sequence are omitted. If \code{prefix} is 
 }
   \item{average}{
-	logical. If \code{TRUE}, the \code{pmin} or \code{pmax} probability is supposed to be the average state probability in the (sub)sequences. If \code{FALSE} (sub)sequences having every state probability less than \code{pmax} or greater than \code{pmin} are selected.
+	logical. If \code{TRUE}, the \code{pmin} or \code{pmax} probability is supposed to be the average state probability in the (sub)sequence. If \code{FALSE} (sub)sequences having every state probability less than \code{pmax} or greater than \code{pmin} are selected.
 }
   \item{output}{
 	character. If \code{output='sequences'} the whole sequence(s) where the user defined criteria is satisfied are returned. If \code{output='patterns'} only the (sub)sequences satisfying the user defined criteria are returned.
+}
+  \item{with.prefix}{
+	logical. If \code{'output=patterns'}, should the patterns in the output be preceeded by their prefix, that is by the whole sub-sequence preceding the pattern. 
+}
+  \item{sorted}{
+	logical. If \code{'sorted=TRUE'}, selected patterns or sequences are sorted according to their score, i.e., their average probability.
+}
+  \item{decreasing}{
+	logical. If \code{'sorted=TRUE'}, should sort order be decreasing or increasing ?
+}
+	\item{score.norm}{
+		logical. If \code{TRUE}, the score attached to each selected pattern or (sub)-sequence (the weights in the returned sequence object) is the average per state probability, and is thus normalized by the length of the pattern. If \code{FALSE}, the score is the whole (sub)-sequence probability.
 }
 }
 \details{
@@ -50,7 +64,7 @@ It is also possible to mine the sequence data for frequent patterns of length \e
 }
 
 \value{
-	A state sequence object, that is an object of class \code{stslist} 
+	A state sequence object, that is an object of class \code{stslist}, where weights are the probability score of (sub)sequences. 
 }
 \author{
 Alexis Gabadinho

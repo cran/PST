@@ -1,7 +1,9 @@
+import(TraMineR, methods)
 importFrom(stats4, logLik)
 importFrom(stats4, nobs)
 importFrom(stats4, plot)
 importFrom(stats4, summary)
+
 
 exportMethods(
 	"cmine",

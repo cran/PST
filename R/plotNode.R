@@ -29,6 +29,7 @@ plotNode <- function(x1, x2, subtree, seglist, nPar, horiz = FALSE, gratio, max.
 	i <- if (inner) 1 else 2
 
 	node.type <- Xtract("node.type", nPar, default = c("prob", "prob"), i)
+	by.state <- Xtract("by.state", nPar, default = FALSE)
 	node.size <- Xtract("node.size", nPar, default = 0.6)
 	Node.lim <- ((node.size/2)*gratio)
 	pfactor <- Xtract("pfactor", nPar, default = 0)
@@ -53,7 +54,7 @@ plotNode <- function(x1, x2, subtree, seglist, nPar, horiz = FALSE, gratio, max.
 	lab.srt <- Xtract("lab.srt", nPar, default = 0, i)
 	lab.pos <- Xtract("lab.pos", nPar, default = NULL, i)
 	lab.offset <- Xtract("lab.offset", nPar, default = 0.5, i)
-	c.size <- Xtract("c.size", nPar, default = (node.size/2)*0.66*gratio)
+	c.size <- Xtract("c.size", nPar, default = (node.size/2)*0.66)
 
 	t.col <- Xtract("t.col", nPar, default = "black", i)
 	t.cex <- Xtract("t.cex", nPar, default = lab.cex)
@@ -111,6 +112,8 @@ plotNode <- function(x1, x2, subtree, seglist, nPar, horiz = FALSE, gratio, max.
 	}
 	
 	if (node.type=="prob") {
+		prob.type <- Xtract("prob.type", nPar, default = c("b", "b"), i)
+
 		## Plotting the circle with the node id
 		id.fg <- if (all(pruned)) { fg.del.col } else { fg.col }
 		id.bg <- if (node.id=="e") { root.col } else { c.cpal[which(node.id==names(c.cpal))] }
@@ -179,7 +182,7 @@ plotNode <- function(x1, x2, subtree, seglist, nPar, horiz = FALSE, gratio, max.
 		}
 
 		plotNodeProb(Node.xleft, Node.ybottom, Node.xright, Node.ytop, prob=prob, seglist=seglist, state=NULL, 
-			cpal=cpal, pruned=pruned, index=index, axes=probAxes)
+			cpal=cpal, pruned=pruned, index=index, axes=probAxes, by.state=by.state, type=prob.type)
 	} else if (node.type=="path") {
 		state <- seqdecomp(path)[1]
 		node.ccol <- Xtract("c.col", nPar, default="white")

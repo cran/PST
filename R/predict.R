@@ -132,7 +132,7 @@ setMethod("predict", signature=c(object="PSTf"),
 					if (!is.null(p1)) {
 						tmp <- p1
 					} else {
-						tmp <- object[[1]][["e"]]@prob
+						tmp <- object[[1]][["e"]]@prob[1,]
 					}
 				} else {
 					sd <- unlist(strsplit(context, split="-"))

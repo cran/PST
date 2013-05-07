@@ -10,7 +10,7 @@
  The \code{ppplot} function displays the probability distributions of a node and all its parent nodes (suffixes) in the tree. IF the name of a gain function and a vector of pruning cutoffs are provided, the graphic will display the outcomes of the gain function, i.e., whether a node represents an information gain relative to its parent.
 }
 \usage{
-\S4method{ppplot}{PSTf}(object, path, gain, C, cex.plot = 1, nsize = 0.3,
+\S4method{ppplot}{PSTf}(object, path, gain, C, cex.plot = 1, nsize = 0.3, nlab=TRUE,
 	psize = nsize/2, pruned.col = "red", div.col = "green", ...)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -30,6 +30,9 @@
 }
   \item{nsize}{
 	numeric. Size of the circles representing the nodes.
+}
+  \item{nlab}{
+	logical. Should the node label be displayed inside the circle?
 }
   \item{psize}{
 	numeric. Size of the circles representing the outcome of the gain function.

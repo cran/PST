@@ -1,3 +1,23 @@
+[0.84]
+- changed NAMESPACE and DESCRIPTION to avoid NOTE in package check
+- changed welcome message in zzz.R
+- added 'base' argument in predict() function
+
+[0.83]
+- updated 'pmine' method: 
+  - unapproriate error message when no pattern satisfying criterion (reported by Aron Lindberg)
+  - now both pmin and pmax can be specified
+  - added 'prefix' option.
+
+[0.82]
+- displaying properly y axis label in pplot and pqplot
+
+[0.81]
+- modified examples in help pages to meet CRAN requirements ('Examples should run for no more than a few seconds each')
+
+[0.80]
+- help pages prepared for submission to the CRAN
+
 [0.75]
 - added a 'logLik' slot to 'PSTf' objects so that the log-likelihood is computed once, when the model is learned.
 The logLik method now extracts the 'logLik' slot of a 'PSTf' object, instead of computing the value by predicting the learning sample with the object.
