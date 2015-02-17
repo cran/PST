@@ -1,14 +1,14 @@
 ## Generating artifical sequences
 
 setMethod("generate", signature=c(object="PSTf"), 
-	def=function(object, l, n=1, s1, p1, method="prob", L) {
+	def=function(object, l, n=1, s1, p1, method="prob", L=NULL, cnames) {
 
 	A <- alphabet(object)
-	if (missing(L)) { L <- length(object)-1 }
+	if (is.null(L)) { L <- length(object)-1 }
 	stationary <- is.stationary(object)
 
 	if (!missing(s1)) {
-		n <- length(s1)
+		## n <- length(s1)
 		message(" [>] user provided first position state(s)")
 	} else if (!missing(p1)) {
 		if (sum(p1)==1 & length(p1)==length(A)) {
@@ -24,7 +24,7 @@ setMethod("generate", signature=c(object="PSTf"),
 
 	## position 1
 	if (!missing(s1)) {
-		if (all(s1) %in% A) {
+		if (all(s1 %in% A)) {
 			seq[, 1] <- rep(s1, n/length(s1))
 		} else {
 			stop("s1 must be a state of the alphabet")
@@ -45,7 +45,7 @@ setMethod("generate", signature=c(object="PSTf"),
 		}
 	}
 
-	if (is.stationary(object)) {
+	if (stationary) {
 		context.table <- unlist(lapply(object[1:(L+1)], names))
 	} else {
 		message(" [>] model is non-stationary")
@@ -53,16 +53,26 @@ setMethod("generate", signature=c(object="PSTf"),
 
 	## position 2:l
 	for (j in 2:l) {
+		message(" [>] position:", j)
 		if (!stationary) {
 			pstpos <- subtree(object, position=j)
 			Lp <- min(length(pstpos)-1,L)
 			context.table <- unlist(lapply(pstpos[1:(Lp+1)], names))
+		} else {
+			Lp <- L
 		}
 
-		contexts <- apply(seq[,max(1, j-L):(j-1), drop=FALSE],1, paste, collapse="-")
+		contexts <- if (Lp==0) { 
+			rep("e", nrow(seq))
+		} else { 
+			apply(seq[,max(1, j-Lp):(j-1), drop=FALSE],1, paste, collapse="-") 
+		}
 		unique.contexts <- unique(contexts)
 		context.idx <- match(contexts, unique.contexts)
 		unmatched <- !unique.contexts %in% context.table
+
+		message(" [>] unique contexts: ", unique.contexts)
+		message(" [>]", sum(unmatched), " unmatched contexts")
 		
 		while (sum(unmatched>0)) {
 			tmp <- seqdecomp(unique.contexts[unmatched])
@@ -86,13 +96,10 @@ setMethod("generate", signature=c(object="PSTf"),
 		for (p in 1:length(unique.contexts)) {
 			context <- unique.contexts[p]
 			context.eq <- which(context.idx==p)
+			message(" [>] context:", context)
      
 				if (context=="e") {
-					if (!is.null(p1)) {
-						tmp <- p1
-					} else {
-						tmp <- object[[1]][["e"]]@prob
-					}
+					tmp <- if (stationary) { object[[1]][["e"]]@prob } else { pstpos[[1]][["e"]]@prob }
 				} else {
 					sd <- unlist(strsplit(context, split="-"))
 					idxl <- length(sd)+1	
@@ -110,7 +117,10 @@ setMethod("generate", signature=c(object="PSTf"),
 		}
   	}
 
-	seq <- seqdef(seq, alphabet=A, cpal=cpal(object), nr="#", stlab=object@labels)
+	if (missing(cnames)) { cnames <- colnames(object@data)[1:l] }
+
+	seq <- seqdef(seq, alphabet=A, cpal=cpal(object), stlab=stlab(object@data), 
+		xtstep=attr(object@data, "xtstep"), cnames=cnames, nr="#", stlab=object@labels)
 
 	fin <- Sys.time()
 	message(" [>] total time: ", format(round(fin-debut, 3)))

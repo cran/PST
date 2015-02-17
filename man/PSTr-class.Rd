@@ -22,13 +22,13 @@ Objects are created when calling the \code{\link{pstree}} function.
     \item{\code{alphabet}:}{Object of class \code{"character"}. Alphabet on which the sequences, and the PST are built. This slot is non-empty only for the root node of the nested representation of a PST. }
     \item{\code{labels}:}{Object of class \code{"character"} containing the long state labels. This slot is non-empty only for the root node of the nested representation of a PST.}
     \item{\code{cpal}:}{Object of class \code{"character"}. Color palette used to represent each state of the alphabet. This slot is non-empty only for the root node of the nested representation of a PST.}
-    \item{\code{index}:}{Object of class \code{"matrix"} ~~ }
+    \item{\code{index}:}{Object of class \code{"matrix"}. When the PST is segmented, indicates the id of the segment corresponding to each group.}
     \item{\code{counts}:}{Object of class \code{"matrix"}. The counts to which the probability distributions are computed. }
     \item{\code{n}:}{Object of class \code{"matrix"}. The number of occurrences of the context in the learning sample, see \code{\link{cprob}}.}
     \item{\code{prob}:}{Object of class \code{"matrix"}. The probability distributions computed from the counts. }
     \item{\code{path}:}{Object of class \code{"character"}. The node label, i.e. the context which is the  path from the node to the root node of the tree. }
     \item{\code{order}:}{Object of class \code{"integer"}. The depth of the node in the tree, i.e., the order of the probability distribution(s) stored in the node. }
-    \item{\code{leaf}:}{Object of class \code{"matrix"}. Indicates whether the node (segment) is a terminal node (segment).  }
+    \item{\code{leaf}:}{Object of class \code{"matrix"}. Indicates whether the node (segment) is a terminal node (segment).}
     \item{\code{pruned}:}{Object of class \code{"matrix"}. If the PST was pruned with the \code{delete=FALSE} option, indicates whether the node (segment) is actually pruned. See \code{\link{prune}}.}
   }
 }

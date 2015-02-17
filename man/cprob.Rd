@@ -83,7 +83,7 @@ cprob(s1, L=1, prob=TRUE)
 data(SRH)
 state.list <- levels(SRH$p99c01)
 ## sequential color palette
-mycol5 <- rev(RColorBrewer::brewer.pal(5, "RdYlGn"))
+mycol5 <- rev(brewer.pal(5, "RdYlGn"))
 SRH.seq <- seqdef(SRH, 5:15, alphabet=state.list, states=c("G1", "G2", "M", "B2", "B1"), 
 	labels=state.list, weights=SRH$wp09lp1s, right=NA, cpal=mycol5)
 names(SRH.seq) <- 1999:2009

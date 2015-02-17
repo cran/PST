@@ -39,7 +39,7 @@ Objects of class \code{"PSTf"} are returned by the \code{\link{pstree}}, \code{\
     \item{\code{cpal}:}{Object of class \code{"character"}. Color palette used to represent each state of the alphabet.}
     \item{\code{segmented}:}{Object of class \code{"logical"} indicating whether the tree is segmented. See \code{\link{pstree}}.}
     \item{\code{group}:}{Object of class \code{"factor"} containing the group membership for each sequence in \code{data}.}
-    \item{\code{call}:}{Object of class \code{"call"} ~~ }
+    \item{\code{call}:}{Object of class \code{"call"}.}
     \item{\code{logLik}:}{Object of class \code{"numeric"}, containing the log-likelihood of the VLMC model represented by the PST.}
   }
 }

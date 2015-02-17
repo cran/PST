@@ -9,7 +9,7 @@
 Generate sequences using a probabilistic suffix tree
 }
 \usage{
-\S4method{generate}{PSTf}(object, l, n, s1, p1, method, L)
+\S4method{generate}{PSTf}(object, l, n, s1, p1, method, L, cnames)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -32,7 +32,10 @@ Generate sequences using a probabilistic suffix tree
 	character. If \code{method=pmax}, at each position the state having the highest probability is chosen. If \code{method=prob}, at each position the state is generated using the corresponding probability distribution taken from \code{object}.
 }
   \item{L}{
-	Integer: Maximal depth used to extract the probability distributions from the PST object.  
+	integer: Maximal depth used to extract the probability distributions from the PST object.  
+}
+  \item{cnames}{
+	character: Optional column (position) names for the returned state sequence object. By default, the names of the sequence object to which the model was fitted are used (slot "data" of the PST).
 }
 }
 \details{

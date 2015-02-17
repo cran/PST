@@ -12,7 +12,7 @@ Build a probabilistic suffix tree that stores a variable length Markov chain (VL
 }
 \usage{
 \S4method{pstree}{stslist}(object, group, L, cdata=NULL, stationary=TRUE, 
-	nmin = 1, ymin=NULL, weighted = TRUE, with.missing = FALSE)
+	nmin = 1, ymin=NULL, weighted = TRUE, with.missing = FALSE, lik = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -29,20 +29,21 @@ Build a probabilistic suffix tree that stores a variable length Markov chain (VL
 	Not implemented yet.
 }
  \item{L}{
-	integer. Maximal depth of the PST. Default to maximum length of the sequence(s) in object minus 1.
+	Integer. Maximal depth of the PST. Default to maximum length of the sequence(s) in object minus 1.
 }
   \item{nmin}{
-	minimum number of occurences of a string to add it in the tree 
+	Integer. Minimum number of occurences of a string to add it in the tree 
 }
   \item{ymin}{
-	smoothing parameter for probabilities, so that no null probability is 
+	Numeric. Smoothing parameter for conditional probabilities, assuring that no symbol, and hence no sequence, is predicted to have a null probability. The parameter $ymin$ sets a lower bound for a symbol's probability.  
 }
   \item{weighted}{
-	logical. If TRUE, weights attached to the sequence object are used in the estimation of probabilities.
+	Logical. If TRUE, weights attached to the sequence object are used in the estimation of probabilities.
 }
   \item{with.missing}{
-	logical. If TRUE, the missing state is added to the alphabet
+	Logical. If TRUE, the missing state is added to the alphabet
 }
+  \item{lik}{Logical. If TRUE, the log-likelihood of the model, i.e. the likelihood of the training sequences given the model, is computed and stored in the 'logLik' slot of the PST. Setting to FALSE will spare the time required to compute the likelihood.}
 }
 \details{
 A probabilistic suffix tree (PST) is built from a learning sample of \eqn{n, \; n \geq 1} sequences by successively adding nodes labelled with subsequences (contexts) \eqn{c} of length \eqn{L,  \; 0 \leq L \leq L_{max}} found in the data. When the value \eqn{L_{max}} is not defined by the user it is set to its theorectical maximum \eqn{\ell-1} where \eqn{\ell} is the maximum sequence length in the learning sample. The \code{nmin} argument specifies the minimum frequency of a subsequence required to add it to te tree.\cr

@@ -13,6 +13,8 @@ setMethod("cprob", signature=c(object="stslist"),
 	}
 
 	statl <- alphabet(object)
+	## We see if the name of one of the states conflicts with names used to label the results 
+	if (any(statl=="[n]")) { stop(" [!] found the symbol '[n]' in the alphabet, which conflicts with internal names used in PST. Please rename this state.") } 
 	nr <- attr(object,"nr")
 	if (with.missing) { statl <- c(statl, nr) }
 	nbetat <- length(statl)
@@ -78,12 +80,12 @@ setMethod("cprob", signature=c(object="stslist"),
 	if (stationary) {
 			freq <- xtabs(weights ~ contexts+states)[,,drop=FALSE]
 			if (prob) { freq <- freq/rowSums(freq) }
-			n <- rowSums(xtabs( ~ contexts+states)[,,drop=FALSE])
+			n <- rowSums(xtabs( ~ contexts+states)[,,drop=FALSE])	
 			res <- cbind(freq, n)
-			colnames(res) <- c(statl, "n")
+			colnames(res) <- c(statl, "[n]")
 
 			if (nmin>1) {
-				nmin.del <- which(res[,"n"]<nmin)
+				nmin.del <- which(res[,"[n]"]<nmin)
 				if (length(nmin.del)>0) {
 					res <- res[-nmin.del,,drop=FALSE]
 					message(" [>] removing ", length(nmin.del), " context(s) where n<", nmin) 
@@ -115,12 +117,12 @@ setMethod("cprob", signature=c(object="stslist"),
 
 				if (prob) { freq <- freq/rowSums(freq) }
 
-				pplist <- cbind(freq, n=fs)
+				pplist <- cbind(freq, "[n]"=fs)
 				## colnames(pplist) <- c(statl, "n")
 				## Sorting by position
 				pplist <- pplist[order(as.numeric(rownames(pplist))),, drop=FALSE]
 
-				nmin.del <- which(pplist[,"n"]<nmin)
+				nmin.del <- which(pplist[,"[n]"]<nmin)
 				if (length(nmin.del)>0) {
 					pplist <- pplist[-nmin.del,,drop=FALSE]
 				}

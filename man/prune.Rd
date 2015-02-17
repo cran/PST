@@ -11,7 +11,7 @@ Prune a probabilistic suffix tree
 Prune a PST, using either a gain function, a maximal depth or a list of nodes to keep or remove. Optionally, nodes are not removed from the tree but tagged as deleted, helping to visualize the pruning process.
 }
 \usage{
-\S4method{prune}{PSTf}(object, nmin, L, gain, C, keep, drop, state, delete = TRUE)
+\S4method{prune}{PSTf}(object, nmin, L, gain, C, keep, drop, state, delete = TRUE, lik =TRUE)
 }
 
 \arguments{
@@ -43,6 +43,7 @@ Prune a PST, using either a gain function, a maximal depth or a list of nodes to
   \item{delete}{
 	Logical. If FALSE, the pruned nodes are not removed from the tree but tagged as pruned=FALSE, so that when plotting the pruned tree these nodes wil appear surrounded with red (can be set to another color) lines.
 }
+  \item{lik}{Logical. If TRUE, the log-likelihood of the pruned model, i.e. the likelihood of the training sequences given the model, is computed and stored in the 'logLik' slot of the PST. Setting to FALSE will spare the time required to compute the likelihood.}
 }
 
 \details{

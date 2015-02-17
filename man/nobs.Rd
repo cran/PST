@@ -7,7 +7,7 @@
 	Extract the number of observations to which a VLMC model is fitted
 }
 \description{
-	The number of observations to which a VLMC model is fitted is notably used for computing the Bayesian Information Criterion \code{BIC}.
+	The number of observations to which a VLMC model is fitted is notably used for computing the Bayesian information criterion \code{BIC} or the Akaike information criterion with correction for finite sample sizes \code{AICc}.
 }
 \usage{
 \S4method{nobs}{PSTf}(object)

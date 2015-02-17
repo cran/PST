@@ -150,34 +150,16 @@ plotNode <- function(x1, x2, subtree, seglist, nPar, horiz = FALSE, gratio, max.
 		}
 
 		## 
-		if (!inner) {
+		if (!inner & !all(subtree@leaf, na.rm=TRUE)) {
 			## Bare verticale en dessous du rectangle
 			if (horiz) {
 				segments(X, Y, X+Node.lim+leave.lh, Y, col=fg.col, lty=lty, lwd=lwd)
+				symbols(X+Node.lim+leave.lh, Y, circles=1, inches=(nc/4)*0.5, add=TRUE,
+					fg=fg.col, bg=fg.col)
 			} else {
 				segments(X, Y, X, Y+Node.lim+leave.lh, col=fg.col, lty=lty, lwd=lwd)
-			}
-
-			if (all(subtree@leaf, na.rm=TRUE)) {
-			## Leave indicator
-				if (horiz) {
-					## Bare horizontale du rateau
-					segments(X+Node.lim+leave.lh, Y-(leave.lw/4), 
-						X+Node.lim+leave.lh, Y+(leave.lw/4), 
-						col=fg.col, lty=lty, lwd=lwd)
-				} else {
-					## Bare horizontale du rateau
-					segments(X-(leave.lw/4), Y+Node.lim+leave.lh, X+(leave.lw/4), 
-						Y+Node.lim+leave.lh, col=fg.col, lty=lty, lwd=lwd)
-				}
-			} else {
-				if (horiz) {
-					symbols(X+Node.lim+leave.lh, Y, circles=1, inches=(nc/4)*0.5, add=TRUE,
-						fg=fg.col, bg=fg.col)
-				} else {
-					symbols(X, Y+Node.lim+leave.lh, circles=leave.csize, inches=FALSE, add=TRUE,
-						fg=fg.col, bg=fg.col)
-				}
+				symbols(X, Y+Node.lim+leave.lh, circles=leave.csize, inches=FALSE, add=TRUE,
+					fg=fg.col, bg=fg.col)
 			}
 		}
 

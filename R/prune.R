@@ -2,7 +2,7 @@
 ## Pruning Probabilistic Suffix Trees
 ## ==================================
 
-setMethod("prune", "PSTf", function(object, nmin, L, gain, C, keep, drop, state, delete=TRUE) {
+setMethod("prune", "PSTf", function(object, nmin, L, gain, C, keep, drop, state, delete=TRUE, lik=TRUE) {
 	
 	data <- object@data
 	cdata <- object@cdata
@@ -119,14 +119,8 @@ setMethod("prune", "PSTf", function(object, nmin, L, gain, C, keep, drop, state,
 		segmented=segmented, group=group, call=match.call(), logLik=as.numeric(NULL))
 
 	## Loglik
-	debut.lik <- Sys.time()
-	message(" [>] computing sequence(s) likelihood ...", appendLF=FALSE)
-	lik <- suppressMessages(predict(object, object@data, object@cdata, group=object@group))
-	lik <- sum(log(lik))
-	fin.lik <- Sys.time()
-	message(" (", format(round(fin.lik-debut.lik, 3)), ")")
-
-	object@logLik <- lik
+	## Loglik
+	if (lik) { object@logLik <- likelihood(object, log=TRUE) }
 
 	return(object)
 }

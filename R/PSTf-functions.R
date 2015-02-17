@@ -1,3 +1,14 @@
+likelihood <- function(object, log=TRUE) {
+	debut.lik <- Sys.time()
+	message(" [>] computing sequence(s) likelihood ...", appendLF=FALSE)
+	lik <- suppressMessages(predict(object, object@data, object@cdata, group=object@group, decomp=TRUE))
+	if (log) { lik <- sum(log(lik)) }
+	fin.lik <- Sys.time()
+	message(" (", format(round(fin.lik-debut.lik, 3)), ")")
+	return(lik)
+} 
+
+
 
 node.list <- function(x, pruned=FALSE) {
 

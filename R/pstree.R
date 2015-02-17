@@ -1,7 +1,7 @@
 ## BUILDING A PROBABILISTIC SUFFIX TREE
 
 setMethod("pstree", signature="stslist", 
-	function(object, group, L, cdata=NULL, stationary=TRUE, nmin=1, ymin=NULL, weighted=TRUE, with.missing=FALSE) {
+	function(object, group, L, cdata=NULL, stationary=TRUE, nmin=1, ymin=NULL, weighted=TRUE, with.missing=FALSE, lik=TRUE) {
 
 	debut <- Sys.time()
 
@@ -22,6 +22,7 @@ setMethod("pstree", signature="stslist",
 	if (all(attr(object, "weights")==1)) { weighted <- FALSE }
 
 	A <- alphabet(object)
+	if (any(A=="[n]")) { stop(" [!] found the symbol '[n]' in the alphabet, which conflicts with internal names used in PST. Please rename this state.") } 
 	StCol <- cpal(object)
 	StLab <- stlab(object)
 	sl <- seqlength(object)
@@ -73,7 +74,7 @@ setMethod("pstree", signature="stslist",
 		## 
 		nodes.names <- names(tmp)
 		tmp.list <- lapply(seq_len(length(tmp)), function(n) 
-			new("PSTr", path=nodes.names[n], counts=tmp[[n]][,A, drop=FALSE], n=tmp[[n]][,"n", drop=FALSE], 
+			new("PSTr", path=nodes.names[n], counts=tmp[[n]][,A, drop=FALSE], n=tmp[[n]][,"[n]", drop=FALSE], 
 				order=i, ymin=ymin, index=tmp[[n]][,c("group","position"),drop=FALSE])
 		)
 
@@ -111,13 +112,7 @@ setMethod("pstree", signature="stslist",
 		segmented=segmented, group=group, call=match.call(), logLik=as.numeric(NULL))
 
 	## likelihood
-	debut.lik <- Sys.time()
-	message(" [>] computing sequence(s) likelihood ...", appendLF=FALSE)
-	lik <- suppressMessages(predict(res, res@data, res@cdata, group=res@group))
-	lik <- sum(log(lik))
-	fin.lik <- Sys.time()
-	message(" (", format(round(fin.lik-debut.lik, 3)), ")")
-	res@logLik <- lik
+	if (lik) { res@logLik <- likelihood(res, log=TRUE) }
 
 	fin <- Sys.time()
 	message(" [>] total time: ", format(round(fin-debut, 3)))
