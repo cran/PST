@@ -1,6 +1,6 @@
 Package: PST
-Version: 0.86
-Date: 2015-02-17
+Version: 0.88
+Date: 2016-05-26
 Title: Probabilistic Suffix Trees and Variable Length Markov Chains
 Authors@R: c(
   person("Alexis", "Gabadinho", role = c("aut", "cre", "cph"),
@@ -15,8 +15,8 @@ Encoding: latin1
 URL: http://r-forge.r-project.org/projects/pst
 Repository: CRAN
 Repository/R-Forge/Project: pst
-Repository/R-Forge/Revision: 283
-Repository/R-Forge/DateTimeStamp: 2015-02-18 13:50:28
-Date/Publication: 2015-02-18 17:36:23
-Packaged: 2015-02-18 14:05:14 UTC; rforge
+Repository/R-Forge/Revision: 291
+Repository/R-Forge/DateTimeStamp: 2016-05-26 16:37:08
+Date/Publication: 2016-05-26 22:04:58
 NeedsCompilation: no
+Packaged: 2016-05-26 16:45:07 UTC; rforge

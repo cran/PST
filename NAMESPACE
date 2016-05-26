@@ -4,6 +4,10 @@ importFrom(stats4, logLik)
 importFrom(stats4, nobs)
 importFrom(stats4, plot)
 importFrom(stats4, summary)
+importFrom("graphics", "abline", "axis", "barplot", "layout", "legend",
+             "lines", "mtext", "par", "rect", "segments", "symbols",
+             "text")
+importFrom("stats", "xtabs")
 
 exportMethods(
 	"cmine",

@@ -46,7 +46,7 @@ setMethod("pqplot", signature=c(object="PSTf", data="stslist"),
 			c.cpal <- c(c.cpal, attr(cdata, "missing.color"))
 		}
 
-		tmp <- TraMineR:::seqgbar(as.matrix(cdata), seql=sl, statl=c.A)
+		tmp <- seqgbar(as.matrix(cdata), seql=sl, statl=c.A)
 
 		## Plotting path
 		barw <- 1
@@ -82,7 +82,7 @@ setMethod("pqplot", signature=c(object="PSTf", data="stslist"),
 				cpal <- c(cpal, attr(data, "missing.color"))
 			}
 
-			tmp <- TraMineR:::seqgbar(as.matrix(data), seql=sl, statl=A)
+			tmp <- seqgbar(as.matrix(data), seql=sl, statl=A)
 			tmp[tmp==1] <- tmp[tmp==1]*prob
 			tmp <- matrix(tmp, nrow=length(A))
 			stcol <- cpal
