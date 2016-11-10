@@ -19,10 +19,13 @@
 }
 }
 \details{
-This is the method for the generic \code{nobs} function provided by the \code{stats4} package. The number of observations to which a VLMC model is fitted is the total number of symbols in the learning sample. If the learning sample contains missing values and the model is learned without including missing values (see \code{\link{pstree}}), the total number of symbols is the number of non-missing states in the sequence(s). This information is used to compute the Bayesian information criterion of a fitted VLMC model. The \code{BIC} generic function calls the \code{\link{logLik}} and \code{nobs} methods for class \code{PSTf}.
+This is the method for the generic \code{nobs} function provided by the \code{stats4} package. The number of observations to which a VLMC model is fitted is the total number of symbols in the learning sample. If the learning sample contains missing values and the model is learned without including missing values (see \code{\link{pstree}}), the total number of symbols is the number of non-missing states in the sequence(s). This information is used to compute the Bayesian information criterion of a fitted VLMC model. The \code{BIC} generic function calls the \code{\link{logLik}} and \code{nobs} methods for class \code{PSTf}. For more details, see \cite{Gabadinho 2016}.
 }
 \value{
 	An integer containing the number of symbols in the learning sample.
+}
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
 }
 \author{
 	Alexis Gabadinho

@@ -54,13 +54,15 @@ The sequence likelihood is returned by the \code{predict} function. By setting \
 logloss(S,x)=-\frac{1}{\ell} \sum_{i=1}^{\ell} \log_{2} P^{S}(x_{i}| x_{1}, \ldots, x_{i-1})=-\frac{1}{\ell} \log_{2} P^{S}(x)
 }
 by using \code{'output=logloss'}.
-The returned value is the average log-loss of each state in the sequence, which allows to compare the prediction for sequences of unequal lengths. The average log-loss can be interpreted as a residual, that is the distance between the prediction of a sequence by a PST \eqn{S} and the perfect prediction  \eqn{P(x)=1} yielding \eqn{logloss(P^{S},x)=0}. The lower the value of \eqn{logloss(P^{S},s)} the better the sequence is predicted.
+The returned value is the average log-loss of each state in the sequence, which allows to compare the prediction for sequences of unequal lengths. The average log-loss can be interpreted as a residual, that is the distance between the prediction of a sequence by a PST \eqn{S} and the perfect prediction  \eqn{P(x)=1} yielding \eqn{logloss(P^{S},x)=0}. The lower the value of \eqn{logloss(P^{S},s)} the better the sequence is predicted. For more details, see \cite{Gabadinho 2016}.
 }
 \value{
 	Either a vector of sequence probabilities (decomp=FALSE) or a matrix (if decomp=FALSE) containing for each sequence (row) the probability of each state in columns.   
 
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016) Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), 1-39.
+}
 \author{
 Alexis Gabadinho
 }

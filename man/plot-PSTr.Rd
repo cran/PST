@@ -78,9 +78,11 @@
 }
 
 \details{
-	The function for graphical representation of a PST uses is recursive. The main argument of the function is a tree represented as a nested list (an object of class \code{PSTr}).
+	The function for graphical representation of a PST uses is recursive. The main argument of the function is a tree represented as a nested list (an object of class \code{PSTr}). See also \cite{Gabadinho 2016}.
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
+}
 \author{
 	Alexis Gabadinho, based on code from \code{plot.dendrogram} 
 }

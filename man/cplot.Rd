@@ -25,9 +25,11 @@ Plot the next symbol probability distribution associated with a particular node 
 }
 %%  ============================================
 \details{
-	The \code{cplot()} function displays a single node labelled with \code{context} of the tree where one or mode barplots (if \code{object} is a segmented PST) represent the probability distribution(s) stored in the node.
+	The \code{cplot()} function displays a single node labelled with \code{context} of the tree where one or mode barplots (if \code{object} is a segmented PST) represent the probability distribution(s) stored in the node. For more details, see \cite{Gabadinho 2016}.
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
+}
 \author{
 	Alexis Gabadinho
 }

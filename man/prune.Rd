@@ -67,17 +67,19 @@ where \eqn{c} is the context labelling the terminal node, \eqn{N(c)} is the numb
 \deqn{
 C=C(\alpha)=\frac{1}{2}qchisq(1-\alpha,v), v=|A|-1
 }
-where \eqn{qchisq(p=1-\alpha,v)} is the quantile function of a \eqn{\chi^{2}} distribution with \eqn{v} degrees of freedom. The cutoff \eqn{C} is a threshold for the difference of deviances between a tree \eqn{S^{1}} and its subtree \eqn{S^{2}} obtained by pruning the terminal node \eqn{c}. Typical values for \eqn{\alpha} are \eqn{5\%} and \eqn{1\%}, yielding \eqn{p=0.95} and \eqn{p=0.99} respectively.
+where \eqn{qchisq(p=1-\alpha,v)} is the quantile function of a \eqn{\chi^{2}} distribution with \eqn{v} degrees of freedom. The cutoff \eqn{C} is a threshold for the difference of deviances between a tree \eqn{S^{1}} and its subtree \eqn{S^{2}} obtained by pruning the terminal node \eqn{c}. Typical values for \eqn{\alpha} are \eqn{5\%} and \eqn{1\%}, yielding \eqn{p=0.95} and \eqn{p=0.99} respectively. For more details, see \cite{Gabadinho 2016}.
 }
 \value{
 	A probabilistic suffix tree, i.e., an object of class \code{\linkS4class{PSTf}}.
 }
 \references{
-Ron, D.; Singer, Y. & Tishby, N. The power of amnesia: Learning probabilistic automata with variable memory length \emph{Machine Learning}, 1996, 25, 117-149
+Bejerano, G. & Yona, G. (2001). Variations on probabilistic suffix trees: statistical modeling and prediction of protein families. \emph{Bioinformatics}, 17, pp. 23-43.
 
-Bejerano, G. & Yona, G. Variations on probabilistic suffix trees: statistical modeling and prediction of protein families. \emph{Bioinformatics}, 2001, 17, 23-43
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
 
-Maechler, M. & Buehlmann, P. Variable Length Markov Chains: Methodology, Computing, and Software \emph{Journal of Computational and Graphical Statistics}, 2004, 13, pp. 435-455
+Maechler, M. & Buehlmann, P. (2004). Variable Length Markov Chains: Methodology, Computing, and Software \emph{Journal of Computational and Graphical Statistics}, 13, pp. 435-455.
+
+Ron, D.; Singer, Y. & Tishby, N. (1996). The power of amnesia: Learning probabilistic automata with variable memory length \emph{Machine Learning}, 25, pp. 117-149.
 }
 \author{
 Alexis Gabadinho

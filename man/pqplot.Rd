@@ -56,9 +56,11 @@ numeric. Expansion factor for setting the size of the font for the axis labels a
 }
 
 \details{
-	The \code{pqplot()} function displays either the predicted probabilities or the log-loss for each position of a single sequence as a series of barplots.
+	The \code{pqplot()} function displays either the predicted probabilities or the log-loss for each position of a single sequence as a series of barplots. For more details, see \cite{Gabadinho 2016}.
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016) Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), 1-39.
+}
 \author{
 	Alexis Gabadinho
 }

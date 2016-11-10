@@ -25,12 +25,14 @@ L(S)=\prod_{i=1}^{n} P^{S}(x^{i})
 }
 where \eqn{P^{S}(x^{i})} is the probability of the \eqn{i}th observed sequence predicted by \eqn{S}.
 Note that the log-likelihood of a VLMC model is not used in the estimation of the model's parameters (see \code{\link{pstree}}). It is obtained once the model is estimated by calling the \code{\link{predict}} function. The value is stored in the \code{logLik} slot of the probabilistic suffix tree representing the model (a \code{PSTf} object returned by the \code{pstree} or \code{prune} function). 
-	 The \code{AIC} and \code{BIC} values can also be obtained with the corresponding generic functions, which call \code{logLik} and use its result.
+	 The \code{AIC} and \code{BIC} values can also be obtained with the corresponding generic functions, which call \code{logLik} and use its result. For more details, see \cite{Gabadinho 2016}.
 }
 \value{
 	An object of class \code{logLik}, a negative numeric value with the \code{df} (degrees of freedom) attribute containing the number of free parameters of the model.
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
+}
 \author{
 	Alexis Gabadinho
 }

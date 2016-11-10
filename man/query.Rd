@@ -33,13 +33,15 @@
 }
 
 \details{
-The PST is searched for the node labelled with \code{context}. If \code{exact=FALSE}, when the node does not exist the PST is searched for the longest suffix of \code{context}, and so on until a node corresponding to a suffix of \code{context} is found or the root node is reached.
+The PST is searched for the node labelled with \code{context}. If \code{exact=FALSE}, when the node does not exist the PST is searched for the longest suffix of \code{context}, and so on until a node corresponding to a suffix of \code{context} is found or the root node is reached. For more details, see \cite{Gabadinho 2016}.
 }
 
 \value{
 	An object of class \code{cprobd}, with available \code{round} method.
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
+}
 \author{
 Alexis Gabadinho
 }

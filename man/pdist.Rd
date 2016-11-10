@@ -64,16 +64,19 @@ is the divergence between models \eqn{S_{A}} and \eqn{S_{B}} and is estimated as
 \hat{E}(d(S_{A}, S_{B}))=\frac{1}{n} \sum_{i=1}^{n} d_{i}(S_{A}, S_{B})
 }
 }
-
+For more details, see \cite{Gabadinho 2016}.
 }
 \value{
 If \code{ouput="all"}, a vector containing the divergence value for each generated sequence, if \code{output="mean"}, the mean, i.e. expected value which is the divergence between models.
 }
 \references{
-Juang, B. H. and Rabiner, L. R. (1985). A probabilistic distance measure for hidden Markov models. \emph{ATT Technical Journal} \bold{64}(2), 391-408.
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
 
-Rabiner, L. R. (1989). A tutorial on hidden Markov models and selected applications in speech recognition. \emph{Proceedings of the IEEE} \bold{77}(2), 257-286.
+Juang, B. H. and Rabiner, L. R. (1985). A probabilistic distance measure for hidden Markov models. \emph{ATT Technical Journal}, \bold{64}(2), pp. 391-408.
+
+Rabiner, L. R. (1989). A tutorial on hidden Markov models and selected applications in speech recognition. \emph{Proceedings of the IEEE}, \bold{77}(2), pp. 257-286.
 }
+
 \author{
 Alexis gabadinho
 }

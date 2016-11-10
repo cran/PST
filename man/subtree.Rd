@@ -22,7 +22,9 @@ integer. Segment of the PST
 Not implemented yet. 
 }
 }
-
+\details{
+See also \cite{Gabadinho 2016}.
+}
 \examples{
 ## activity calendar for year 2000
 ## from the Swiss Household Panel
@@ -56,6 +58,11 @@ plot(g1.pst, withlegend=FALSE, max.level=4, main="20-29")
 plot(g2.pst, withlegend=FALSE, max.level=4, main="30-39")
 
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
+}
+\author{
+Alexis Gabadinho
+}
 \keyword{methods}
 \keyword{models}

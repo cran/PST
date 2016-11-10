@@ -47,7 +47,13 @@ character. Color used to represent an internal node which provides information g
 additional parameters to be passed to the \code{plot} function.
 }
 }
+\details{
+For more details, see \cite{Gabadinho 2016}.
+}
 
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
+}
 \author{
 Alexis Gabadinho
 }

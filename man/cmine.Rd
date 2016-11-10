@@ -43,7 +43,7 @@
 
 
 \section{details}{
-The \code{cmine} function searches in the tree for nodes fulfilling certain characteristics, for example contexts that are highly likely to be followed by a given state (see example 1). One can also mine for contexts corresponding to a minimum or maximum probability for several states together (see example 2).
+The \code{cmine} function searches in the tree for nodes fulfilling certain characteristics, for example contexts that are highly likely to be followed by a given state (see example 1). One can also mine for contexts corresponding to a minimum or maximum probability for several states together (see example 2). For more details, see \cite{Gabadinho 2016}.
 }
 
 
@@ -68,7 +68,9 @@ plot(cm2, tlim=0, main="(a) p(B1,B2,M)>0.5")
 \value{
 	If \code{as.tree=TRUE} a PST, that is an object of class \code{PSTf} which can be printed and plotted; if \code{as.tree=FALSE} a list of contexts with their associated next symbol probability distribution, that is an object of class \code{cprobd.list} for which a \code{plot} method is available. Subscripts can be used to select subsets of the contexts, see examples. 
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
+}
 \author{
 Alexis Gabadinho
 }

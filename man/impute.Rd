@@ -26,12 +26,14 @@
 }
 }
 \details{
-A probabilistic suffix tree (PST) can be used to impute missing states in sequences built on the same alphabet. When a missing state occurs in a sequence the procedure searches in the PST for the context preceding the missing state and impute the state according to the conditional distribution associated with the context. The imputation can be done either randomly (method="prob") or with the state having the highest probability. However, more sophisticated modelling taking account of the non response mechanism could be required for imputing missing states.
+A probabilistic suffix tree (PST) can be used to impute missing states in sequences built on the same alphabet. When a missing state occurs in a sequence the procedure searches in the PST for the context preceding the missing state and impute the state according to the conditional distribution associated with the context. The imputation can be done either randomly (method="prob") or with the state having the highest probability. However, more sophisticated modelling taking account of the non response mechanism could be required for imputing missing states. For more details, see \cite{Gabadinho 2016}.
 }
 \value{
 	A sequence object (of class \code{stslist}) containing original sequences in \code{data} with missing states imputed.  
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, 2016, \bold{72}(3), 1-39.
+}
 \author{
  Alexis Gabadinho
 }

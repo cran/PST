@@ -62,12 +62,14 @@ Considering a - possibly weighted - sample of \eqn{m} sequences having weights \
 \deqn{
 N(c)=\sum_{j=1}^{m} w^{j} \sum_{i=1}^{\ell} 1 \left[x_{i}^{j}, \ldots, x_{i+|c|-1}^{j}=c \right], \; c=c_{1}, \ldots, c_{k}
 }
-where \eqn{x^{j}=x_{1}^{j}, \ldots, x_{\ell}^{j}} is the \eqn{j}th sequence in the sample.
+where \eqn{x^{j}=x_{1}^{j}, \ldots, x_{\ell}^{j}} is the \eqn{j}th sequence in the sample. For more details, see \cite{Gabadinho 2016}.
 }
 \value{
 	If \code{stationary=TRUE} a matrix  with one row for each subsequence of length \eqn{L} and minimal frequency \eqn{nmin} appearing in \code{object}.  If \code{stationary=FALSE} a list where each element corresponds to one subsequence and contains a matrix whith the probability distribution at each position \eqn{p} where a state is preceded by the subsequence.  
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
+}
 \author{
 Alexis Gabadinho
 }

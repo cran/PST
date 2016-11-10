@@ -39,12 +39,14 @@ Generate sequences using a probabilistic suffix tree
 }
 }
 \details{
-As a probabilistic suffix tree (PST) represents a generating model, it can be used to generate artificial sequence data sets. Sequences are built by generating the states at each successive position. The process is similar to sequence prediction (see \code{\link{predict}}), except that the retrieved conditional probability distributions provided by the PST are used to generate a symbol instead of computing the probability of an existing state.
+As a probabilistic suffix tree (PST) represents a generating model, it can be used to generate artificial sequence data sets. Sequences are built by generating the states at each successive position. The process is similar to sequence prediction (see \code{\link{predict}}), except that the retrieved conditional probability distributions provided by the PST are used to generate a symbol instead of computing the probability of an existing state. For more details, see \cite{Gabadinho 2016}.
 }
 \value{
 A state sequence object (an object of class \code{stslist}) containing \code{n} sequences. This object can be passed as argument to all the functions for visualization and analysis provided by the \code{\link{TraMineR}} package. 
 }
-
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
+}
 \author{
 Alexis Gabadinho
 }

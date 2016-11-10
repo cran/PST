@@ -60,11 +60,14 @@ The likelihood \eqn{P^{S}(x)} of a whole sequence \eqn{x} is computed from the s
 
 The \code{pmine} function allows for advanced pattern mining with user defined parameters. It is controlled by the \code{lag} and \code{pmin} arguments. For example, by setting \code{lag=2} and \code{pmin=0.40} (example 1), we select all sequences with average (the geometric mean is used) state probability from position \eqn{lag+1, \ldots, \ell} above \code{pmin}. Instead of considering the average state probability at positions \eqn{lag+1, \ldots, \ell}, it is also possible to select frequent patterns that do not contain any state with probability below the threshold. This prevents from selecting sequences having many states with high probability but one ore several states with a low probability. 
 
-It is also possible to mine the sequence data for frequent patterns of length \eqn{\ell_{j} < \ell}, regardless of the position in the sequence where they occur. By using the \code{output="patterns"} argument, the \code{pmine} function returns the patterns (as a sequence object) instead of the whole set of distinct sequences containing the patterns. Since the probability of a pattern can be different depending on the context (previous states) the returned subsequences also contain the context preceding the pattern.
+It is also possible to mine the sequence data for frequent patterns of length \eqn{\ell_{j} < \ell}, regardless of the position in the sequence where they occur. By using the \code{output="patterns"} argument, the \code{pmine} function returns the patterns (as a sequence object) instead of the whole set of distinct sequences containing the patterns. Since the probability of a pattern can be different depending on the context (previous states) the returned subsequences also contain the context preceding the pattern. For more details, see \cite{Gabadinho 2016}.
 }
 
 \value{
 	A state sequence object, that is an object of class \code{stslist}, where weights are the probability score of (sub)sequences. 
+}
+\references{
+Gabadinho, A. & Ritschard, G. (2016). Analyzing State Sequences with Probabilistic Suffix Trees: The PST R Package. \emph{Journal of Statistical Software}, \bold{72}(3), pp. 1-39.
 }
 \author{
 Alexis Gabadinho
