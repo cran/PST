@@ -1,3 +1,9 @@
+[0.94]
+- Fixed problem when computing likelihood of models fitted to sequences of unequal lengths (reported by Aron Lindberg)
+
+[0.92]
+- Changed email adress
+
 [0.90]
 - added 'inst' directory and 'CITATION' file mentioning the JSS paper
 
